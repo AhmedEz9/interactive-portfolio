@@ -27,5 +27,5 @@ If you want to run this application on your own machine:
 
 1. Clone this repository:
    ```bash
-   git clone [https://github.com/AhmedEz9/interactive-portfolio.git](https://github.com/AhmedEz9/interactive-portfolio.git)
+   git clone https://github.com/AhmedEz9/interactive-portfolio.git
    ```

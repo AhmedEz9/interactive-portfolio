@@ -3,20 +3,17 @@ import pandas as pd
 import requests
 from streamlit_lottie import st_lottie
 
-# --- HELPER FUNCTION FOR LOTTIE ---
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
 
-# Load a cool coding animation from LottieFiles
 lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
 
 # 1. PAGE SETUP
 st.set_page_config(page_title="Ahmed Ezzaroui - Portfolio", page_icon="💻", layout="wide")
 
-# FIX: Force page to load at the top instead of scrolling to the chat box
 st.components.v1.html(
     """
     <script>
@@ -26,7 +23,6 @@ st.components.v1.html(
     height=0
 )
 
-# --- VISUAL UPGRADE: PREMIUM MODERN UI & GLASSMORPHISM ---
 st.markdown("""
 <style>
     /* Sleek Frosted Glass Sidebar */
@@ -63,9 +59,7 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-# ----------------------------------------
 
-# --- WELCOME NOTIFICATION (Only shows once per visit) ---
 if "welcomed" not in st.session_state:
     st.toast("Welcome to Ahmed's Digital Portfolio! 🚀", icon="👋")
     st.session_state.welcomed = True
@@ -115,14 +109,12 @@ with left_col:
     st.write("**Full Stack Developer specializing in React, Node.js & AWS.**")
     st.write("*Passionate about AI Integrations and Cloud Architecture.*")
     
-    # --- VISUAL UPGRADE: IMPACT METRICS (Replaced the text quote) ---
-    st.write("") # Add a little spacing
+    st.write("") 
     m1, m2, m3 = st.columns(3)
     m1.metric(label="Featured Projects", value="4")
     m2.metric(label="Certifications", value="5")
     m3.metric(label="Tech Stack", value="10+ Tools")
-    st.write("") # Add a little spacing
-    # ----------------------------------------------------------------
+    st.write("") 
 
     st.write("""
     *Note: This portfolio is my project for the "New Technologies" course. I built this application 
@@ -144,7 +136,7 @@ with col1:
     st.subheader("Skill Level")
     skills_data = pd.DataFrame({
         "Skill": ["React/Next.js", "Node.js", "AWS/Azure", "Python/Streamlit", "Docker"],
-        "Proficiency (%)": [85, 80, 80, 75, 70]
+        "Proficiency (%)": [70, 75, 85, 60, 80]
     })
     skills_data.set_index("Skill", inplace=True)
     st.bar_chart(skills_data)
